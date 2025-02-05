@@ -1,0 +1,194 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><style>body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #ff6ec7, #ff9a8b);
+}
+
+.container {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  height: 80%;
+  overflow-y: auto;
+  position: relative;
+  animation: fadeIn 1s ease-out;
+}
+
+.icon-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: #ff6ec7;
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  color: #ff6ec7;
+}
+
+#taskInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff6ec7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ff9a8b;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  padding: 12px;
+  background-color: #fff;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 0.5s forwards;
+}
+
+li.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+li .button-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button.delete,
+button.complete {
+  background-color: #ff6347;
+  border-radius: 8px;
+  padding: 4px 8px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+  width: 80px;
+  text-align: center;
+}
+
+button.delete:hover,
+button.complete:hover {
+  background-color: #e74c3c;
+}
+
+button.complete {
+  background-color: #4CAF50;
+}
+
+button.complete:hover {
+  background-color: #45a049;
+}
+
+/* Animation for fading in tasks */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in effect for the container */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Footer and Invite Button */
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.name {
+  font-weight: bold;
+  color: #ff6ec7;
+}
+
+.invite-btn {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.invite-btn:hover {
+  background-color: #45a049;
+}
+
+/* Made by @luckyrajsharma in bottom corner */
+.footer-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 12px;
+  color: black;
+  font-weight: normal;
+}
+
+/* Text below buttons (Complete/Delete) */
+li .button-text {
+  display: none;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 5px;
+  color: #777;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+li button:hover + .button-text,
+li button:focus + .button-text {
+  display: block;
+  opacity: 1;
+}</style>

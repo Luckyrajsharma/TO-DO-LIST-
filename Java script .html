@@ -1,0 +1,42 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><script>document.getElementById('addBtn').addEventListener('click', addTask);
+
+function addTask() {
+  const taskInput = document.getElementById('taskInput');
+  const taskText = taskInput.value.trim();
+
+  if (taskText === '') {
+    alert('Please enter a task!');
+    return;
+  }
+
+  const li = document.createElement('li');
+  const task = document.createElement('span');
+  task.textContent = taskText;
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = 'Delete';
+  deleteBtn.classList.add('delete');
+  const completeBtn = document.createElement('button');
+  completeBtn.textContent = 'Complete';
+  completeBtn.classList.add('complete');
+
+  li.appendChild(task);
+  li.appendChild(completeBtn);
+  li.appendChild(deleteBtn);
+  document.getElementById('taskList').appendChild(li);
+
+  deleteBtn.addEventListener('click', deleteTask);
+  completeBtn.addEventListener('click', toggleCompleted);
+
+  taskInput.value = '';
+}
+
+function deleteTask(event) {
+  const taskItem = event.target.parentElement;
+  taskItem.classList.add('deleted');
+  setTimeout(() => taskItem.remove(), 300); // Delay removal for animation
+}
+
+function toggleCompleted(event) {
+  const taskItem = event.target.parentElement;
+  taskItem.classList.toggle('completed');
+}</script>
